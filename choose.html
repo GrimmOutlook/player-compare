@@ -6,80 +6,87 @@
   <link rel="stylesheet" href="stylesheets/normalize.css">
   <link rel="stylesheet" href="stylesheets/main.css">
 </head>
-<body>
+<body class="choose">
 
-<div class="big-image">
-</div>
+  <div class="masthead">
+    <p>NFL Player Compare</p>
+  </div>
 
-<div class="instructions">
-  <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-</div>
+  <div class="big-image">
+    <img src="images/steelers-logo.jpg">
+  </div>
 
-<div class="positions">
-  QB    RB   WR   TE   K
-</div>
+  <div class="instructions">
+    <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+  </div>
 
-  <form name="player-one" method="POST" action="">
-    <h2 align="left">Choose Your First Player</h2>
-      <div class="form-group">
-        <label for="player-one">Player One</label>
-        <select name="player-one" class="form-control">
-          <option value="">-- Please Select --</option>
-          <optgroup label="Select a Player:">
-            <option>Ben Roethlisberger</option>
-            <option>Aaron Rodgers</option>
-            <option>Drew Brees</option>
-          </optgroup>
-        </select>
-      </div>
-  </form>
+  <div class="positions">
+    <h3>Choose a Position:    QB    RB   WR   TE   K</h3>
+  </div>
 
-  <form name="player-one-year" method="POST" action="">
-    <h2 align="left">Choose A Year for Comparison</h2>
-      <div class="form-group">
-        <label for="player-one-year">Year</label>
-        <select name="player-one-year" class="form-control">
-          <option value="">-- Please Select --</option>
-          <optgroup label="Select a Year:">
-            <option>2016</option>
-            <option>2015</option>
-            <option>2014</option>
-          </optgroup>
-        </select>
-      </div>
-  </form>
+    <form name="player-one" method="POST" action="">
+      <h2 align="left">Choose Your First Player</h2>
+        <div class="form-group">
+          <label for="player-one">Player One</label>
+          <select name="player-one" class="form-control">
+            <option value="">-- Please Select --</option>
+            <optgroup label="Select a Player:">
+              <option>Ben Roethlisberger</option>
+              <option>Aaron Rodgers</option>
+              <option>Drew Brees</option>
+            </optgroup>
+          </select>
+        </div>
+    </form>
 
-  <form name="player-two" method="POST" action="">
-    <h2 align="left">Choose Your Second Player</h2>
-      <div class="form-group">
-        <label for="player-two">Player Two</label>
-        <select name="player-two" class="form-control">
-          <option value="">-- Please Select --</option>
-          <optgroup label="Select a Player:">
-            <option>Tom Brady</option>
-            <option>Dak Prescott</option>
-            <option>Joe Flacco</option>
-          </optgroup>
-        </select>
-      </div>
-  </form>
+    <form name="player-one-year" method="POST" action="">
+      <h2 align="left">Choose A Year for Comparison</h2>
+        <div class="form-group">
+          <label for="player-one-year">Year</label>
+          <select name="player-one-year" class="form-control">
+            <option value="">-- Please Select --</option>
+            <optgroup label="Select a Year:">
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+            </optgroup>
+          </select>
+        </div>
+    </form>
 
-  <form name="player-two-year" method="POST" action="">
-    <h2 align="left">Choose A Year for Comparison</h2>
-      <div class="form-group">
-        <label for="player-two-year">Year</label>
-        <select name="player-two-year" class="form-control">
-          <option value="">-- Please Select --</option>
-          <optgroup label="Select a Year:">
-            <option>2016</option>
-            <option>2015</option>
-            <option>2014</option>
-          </optgroup>
-        </select>
-      </div>
-  </form>
+    <form name="player-two" method="POST" action="">
+      <h2 align="left">Choose Your Second Player</h2>
+        <div class="form-group">
+          <label for="player-two">Player Two</label>
+          <select name="player-two" class="form-control">
+            <option value="">-- Please Select --</option>
+            <optgroup label="Select a Player:">
+              <option>Tom Brady</option>
+              <option>Dak Prescott</option>
+              <option>Joe Flacco</option>
+            </optgroup>
+          </select>
+        </div>
+    </form>
 
-  <button type="submit">Compare</button>
+    <form name="player-two-year" method="POST" action="">
+      <h2 align="left">Choose A Year for Comparison</h2>
+        <div class="form-group">
+          <label for="player-two-year">Year</label>
+          <select name="player-two-year" class="form-control">
+            <option value="">-- Please Select --</option>
+            <optgroup label="Select a Year:">
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+            </optgroup>
+          </select>
+        </div>
+    </form>
+
+    <a href="compare.html" class="compare-initial">
+      <button type="submit">Compare</button>
+    </a>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
