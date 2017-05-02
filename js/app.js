@@ -1,16 +1,17 @@
-var endpointURL = "http://api.fantasy.nfl.com/v1/players/stats";
+var endpointURLScoring = "http://api.fantasy.nfl.com/v1/players/scoringleaders";
+var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
 
 // ----------------------  Initial retrieval & display fxns.  ------------------------
 
 // Fxn to GET data from API
-function getDataFromAPI(year, position, callback){
+function getScoringFromAPI(year, week, position, callback){
   debugger
   var settings = {
-    url: endpointURL,
+    url: endpointURLScoring,
     data: {
-      statType: 'seasonStats',
       season: year,
+      week: week,
       position: position,
       format: 'json'
     },
@@ -22,22 +23,23 @@ function getDataFromAPI(year, position, callback){
 }
 
 // Callback Fxn that displays the data from API upon successful retrieval
-function display(data){
+function displayDropdown(data){
   var player = {};
   var resultElement = '';
 
   // console.log(data.players);
 
-  for(var i = 0; i < data.players.length; i++){
+  for(var i = 0; i < data.positions.QB.length; i++){
     player = {
-      name: data.players[i].name,
-      position: data.players[i].position,
-      team: data.players[i].teamAbbr
+      name: data.positions.QB[i].firstName + ' ' + data.positions.QB[i].lastName,
+      team: data.positions.QB[i].teamAbbr
     };
 
-    console.log(player.name);
+    // console.log(data.positions.QB[0].stats.PassYds);
 
-    resultElement += '<li>' + player.name + ', ' + player.position + ', ' + player.team + '</li>'
+    resultElement += '<li>' + player.name + ',  ' + player.team + '</li>'
+
+    // resultElement += '<li>' + data.positions.QB[0].stats.PassYds + '</li>'
 
   }
 
@@ -49,27 +51,10 @@ function watchSubmit(){
   $('.player-stats').submit(function(e){
     debugger
     e.preventDefault();
-    getDataFromAPI("2016", "QB", display);
+    getScoringFromAPI("2016", "1", "QB", displayDropdown);
   });
 }
 
 $(function(){watchSubmit();});
-
-
-
-
-
-
-// function display(data){
-//   var resultElement = '';
-//   console.log(data.players.name);
-//   debugger
-//   data.players.name.forEach(function(){
-//     resultElement += '<li>' + players.name + '</li>'
-//   });
-
-//   $('.practice').html(resultElement);
-
-// }
 
 
