@@ -4,7 +4,7 @@ var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
 // ----------------------  Initial retrieval & display fxns.  ------------------------
 
-// Fxn to GET data from API
+// Fxn to GET data from API scoringleaders endpoint
 function getScoringFromAPI(year, week, position, callback){
   debugger
   var settings = {
@@ -22,12 +22,10 @@ function getScoringFromAPI(year, week, position, callback){
   $.ajax(settings);
 }
 
-// Callback Fxn that displays the data from API upon successful retrieval
+// Callback Fxn that displays the player in a dropdown menu for user selection
 function displayDropdown(data){
   var player = {};
   var resultElement = '';
-
-  // console.log(data.players);
 
   for(var i = 0; i < data.positions.QB.length; i++){
     player = {
@@ -35,12 +33,7 @@ function displayDropdown(data){
       team: data.positions.QB[i].teamAbbr
     };
 
-    // console.log(data.positions.QB[0].stats.PassYds);
-
-    resultElement += '<li>' + player.name + ',  ' + player.team + '</li>'
-
-    // resultElement += '<li>' + data.positions.QB[0].stats.PassYds + '</li>'
-
+    resultElement += '<option>' + player.name + ',  ' + player.team + '</option>'
   }
 
   $('.practice').html(resultElement);
