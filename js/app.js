@@ -41,10 +41,11 @@ function displayDropdown(data){
 }
 
 function watchSubmit(){
-  $('.player-stats').submit(function(e){
+  $('#position-choice').click(function(e){
     debugger
     e.preventDefault();
-    getScoringFromAPI("2016", "1", "QB", displayDropdown);
+    var position = $(this).find('option:selected').val();
+    getScoringFromAPI("2016", "1", position, displayDropdown);
   });
 }
 
