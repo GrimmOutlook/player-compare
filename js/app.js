@@ -2,10 +2,10 @@ var endpointURLScoring = "http://api.fantasy.nfl.com/v1/players/scoringleaders";
 var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
 
-// ----------------------  Initial retrieval & display fxns.  ------------------------
+// ---------------------------  API Call fxns.  ---------------------------------
 
-// Fxn to GET data from API scoringleaders endpoint
-function getScoringFromAPI(year, week, position, callback){
+// Fxn to GET list of players from API scoringleaders endpoint
+function getPlayersFromAPI(year, week, position, callback){
   debugger
   var settings = {
     url: endpointURLScoring,
@@ -22,6 +22,25 @@ function getScoringFromAPI(year, week, position, callback){
   $.ajax(settings);
 }
 
+// Fxn to GET stats from API scoringleaders endpoint
+function getStatsFromAPI(position, year, callback){
+  debugger
+  var settings = {
+    url: endpointURLScoring,
+    data: {
+      season: year,
+      position: position,
+      format: 'json'
+    },
+    dataType: 'json',
+    method: 'GET',
+    success: callback
+  };
+  $.ajax(settings);
+}
+
+// -------------------------  Callback Display fxns.  ---------------------------------
+
 // Callback Fxn that displays a list of players in a dropdown menu for user selection for both Player 1 and Player 2.
 function displayDropdown(playerData){
   var player = {};
@@ -29,28 +48,23 @@ function displayDropdown(playerData){
   var resultElement = '';
   var selectedPosition = Object.keys(playerData.positions)[0];
   var selectedPlayers = playerData.positions[Object.keys(playerData.positions)[0]];
-  debugger
 
   for(var i = 0; i < selectedPlayers.length; i++){
     player = {
       name: selectedPlayers[i].firstName + ' ' + selectedPlayers[i].lastName,
       team: selectedPlayers[i].teamAbbr,
-      alpha: selectedPlayers[i].lastName
+      alpha: selectedPlayers[i].lastName,
     };
-
     players.push(player);
-
   }
 
   players.sort(alphaSort);
-  debugger
 
   for(var x = 0; x < players.length; x++){
     resultElement += '<option>' + players[x].name + ',  ' + players[x].team + '</option>'
   }
 
   $('.player-list').html(resultElement);
-
 }
 
 // Sort names alphabetically
@@ -67,27 +81,42 @@ function alphaSort(a, b) {
       return comparison;
   }
 
+
+function displayStats(statData){
+  debugger
+  var selectedPosition = Object.keys(statData.positions)[0];
+  var selectedPlayers = statData.positions[Object.keys(statData.positions)[0]];
+
+  var testingOutput = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
+  debugger
+
+  console.log(testingOutput);
+
+  $('.does-it-work').html(testingOutput);
+}
+
+// ---------------------------  User Event fxns.  ---------------------------------
+
 function pickPosition(){
   $('#position-choice').click(function(e){
-    debugger
     e.preventDefault();
     var position = $(this).find('option:selected').val();
-    debugger
-    getScoringFromAPI("2016", "1", position, displayDropdown);
+    getPlayersFromAPI("2016", "1", position, displayDropdown);
   });
 }
 
-// function selectCompare(){
-//   $('.compare-initial').click(function(e){
-//     debugger
-//     e.preventDefault();
-//     var playerOne =
-//     var playerTwo =
-//     var year = $(this).find('option:selected').val();
-//     getScoringFromAPI(year, "1", position, displayDropdown);
-//   });
-// }
+function selectCompare(){
+  $('.compare-initial').click(function(e){
+    debugger
+    e.preventDefault();
+    // var playerOne = $(this).find('option:selected').val();
+    // var playerTwo = $(this).find('option:selected').val();
+    // var year = $(this).find('option:selected').val();
+    getStatsFromAPI("QB", "2016", displayStats);
+  });
+}
 
 $(function(){pickPosition();});
+selectCompare();
 
 
