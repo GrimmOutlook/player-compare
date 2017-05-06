@@ -5,7 +5,7 @@ var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 // ---------------------------  API Call fxns.  ---------------------------------
 
 // Fxn to GET list of players from API scoringleaders endpoint
-function getPlayersFromAPI(year, week, position, callback){
+function getPlayersFromAPI(year, week, position, count, callback){
   debugger
   var settings = {
     url: endpointURLScoring,
@@ -13,6 +13,7 @@ function getPlayersFromAPI(year, week, position, callback){
       season: year,
       week: week,
       position: position,
+      count: count,
       format: 'json'
     },
     dataType: 'json',
@@ -89,7 +90,7 @@ function displayStats(statData){
 
   var testingOutputOne = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
   debugger
-  var testingOutputTwo = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
+  var testingOutputTwo = '<div>' + selectedPlayers[16].firstName + ' ' + selectedPlayers[16].lastName + '</div>';
 
   console.log(testingOutputOne);
   console.log(testingOutputTwo);
@@ -104,7 +105,7 @@ function pickPosition(){
   $('#position-choice').click(function(e){
     e.preventDefault();
     var position = $(this).find('option:selected').val();
-    getPlayersFromAPI("2016", "1", position, displayDropdown);
+    getPlayersFromAPI("2016", "1", position, "50", displayDropdown);
   });
 }
 
