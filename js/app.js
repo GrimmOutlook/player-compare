@@ -114,9 +114,11 @@ function selectCompare(){
     e.preventDefault();
     // var playerOne = $(this).find('option:selected').val();
     // var playerTwo = $(this).find('option:selected').val();
-    // var year = $(this).find('option:selected').val();
-    getStatsFromAPI("QB", "2016", displayStats);
-    getStatsFromAPI("RB", "2015", displayStats);
+    var position = $('#position-choice').find('option:selected').val();
+    var year = $('#player-one-year').find('option:selected').val();
+    debugger
+    getStatsFromAPI(position, year, displayStats);
+    // getStatsFromAPI("RB", "2015", displayStats);
   });
 }
 
