@@ -87,12 +87,15 @@ function displayStats(statData){
   var selectedPosition = Object.keys(statData.positions)[0];
   var selectedPlayers = statData.positions[Object.keys(statData.positions)[0]];
 
-  var testingOutput = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
+  var testingOutputOne = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
   debugger
+  var testingOutputTwo = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
 
-  console.log(testingOutput);
+  console.log(testingOutputOne);
+  console.log(testingOutputTwo);
 
-  $('.does-it-work').html(testingOutput);
+  $('#player-one-stuff').html(testingOutputOne);
+  $('#player-two-stuff').html(testingOutputTwo);
 }
 
 // ---------------------------  User Event fxns.  ---------------------------------
@@ -113,6 +116,7 @@ function selectCompare(){
     // var playerTwo = $(this).find('option:selected').val();
     // var year = $(this).find('option:selected').val();
     getStatsFromAPI("QB", "2016", displayStats);
+    getStatsFromAPI("RB", "2015", displayStats);
   });
 }
 
