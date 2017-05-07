@@ -5,7 +5,7 @@ var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 // ---------------------------  API Call fxns.  ---------------------------------
 
 // Fxn to GET list of players from API scoringleaders endpoint
-function getPlayersFromAPI(year, week, position, count, callback){
+function getPlayersFromAPI(year, week, position, callback){
   debugger
   var settings = {
     url: endpointURLScoring,
@@ -13,7 +13,6 @@ function getPlayersFromAPI(year, week, position, count, callback){
       season: year,
       week: week,
       position: position,
-      count: count,
       format: 'json'
     },
     dataType: 'json',
@@ -104,22 +103,28 @@ function displayStats(statData){
 function pickPosition(){
   $('#position-choice').click(function(e){
     e.preventDefault();
+    debugger
     var position = $(this).find('option:selected').val();
-    getPlayersFromAPI("2016", "1", position, "50", displayDropdown);
+    debugger
+    console.log("Why can't the fucking position be selected " + position);
+    getPlayersFromAPI("2016", "1", position, displayDropdown);
   });
 }
 
 function selectCompare(){
   $('.compare-initial').click(function(e){
-    debugger
     e.preventDefault();
-    // var playerOne = $(this).find('option:selected').val();
-    // var playerTwo = $(this).find('option:selected').val();
     var position = $('#position-choice').find('option:selected').val();
-    var year = $('#player-one-year').find('option:selected').val();
+    var playerOne = $('#player-one').find('option:selected').val();
+      console.log(playerOne);
+    var yearOne = $('#player-one-year').find('option:selected').val();
+      console.log(yearOne);
+    var playerTwo = $('#player-two').find('option:selected').val();
+      console.log(playerTwo);
+    var yearTwo = $('#player-two-year').find('option:selected').val();
+    console.log(yearTwo);
     debugger
     getStatsFromAPI(position, year, displayStats);
-    // getStatsFromAPI("RB", "2015", displayStats);
   });
 }
 
