@@ -107,6 +107,10 @@ form[name="player-two-year"] {
   width: 100%;
 }
 
+#myPopup {
+  display: none;
+}
+
 
 
 

@@ -1,0 +1,49 @@
+$(".selector").simplePopup({
+
+  // "auto", "data", "html"
+  type: "auto",
+
+  // HTML selector for popup content
+  htmlSelector: null,
+
+  // Width/Height of popip
+  width: "600px",
+  height: "auto",
+
+  // Background color
+  background: "#fff",
+
+  // Backdrop opactity
+  backdrop: 0.7,
+
+  // Backdrop background (any css here)
+  backdropBackground: "#000",
+
+  // Inject CSS via JS
+  inlineCss: true,
+
+  // Close popup when "escape" is pressed
+  escapeKey: true,
+
+  // Display a closing cross
+  closeCross: true,
+
+  // The time to fade the popup in, in seconds
+  fadeInDuration: 0.3,
+
+  // The timing function used to fade the popup in
+  fadeInTimingFunction: "ease",
+
+  // The time to fade the popup out, in seconds
+  fadeOutDuration: 0.3,
+
+  // The timing function used to fade the popup out
+  fadeOutimingFunction: "ease",
+
+  // Callbacks
+  beforeOpen: function(){},
+  afterOpen: function(){},
+  beforeClose: function(){},
+  afterClose: function(){}
+
+});
