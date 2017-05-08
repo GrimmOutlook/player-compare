@@ -1,6 +1,12 @@
 var endpointURLScoring = "http://api.fantasy.nfl.com/v1/players/scoringleaders";
 var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
+// var state = {
+//   player: '',
+//   year: ''
+//   , week: ''
+// };
+
 
 // ---------------------------  API Call fxns.  ---------------------------------
 
@@ -84,6 +90,15 @@ function alphaSort(a, b) {
 
 function displayStats(statData){
   debugger
+  // var playerOneInfo = {};
+  // debugger
+  var x = relevantInfo(playerOneInfo);
+  debugger
+  // var playerTwoInfo = {};
+  console.log(playerOneInfo);
+  console.log(x);
+  // console.log(playerTwoInfo);
+  debugger
   var selectedPosition = Object.keys(statData.positions)[0];
   var selectedPlayerOne = statData.positions[Object.keys(statData.positions)[0]];
   // var selectedYearOne = ;
@@ -108,17 +123,29 @@ function displayStats(statData){
 function relevantInfo(position, playerOne, yearOne, playerTwo, yearTwo){
   var playerOneInfo = {};
   var playerTwoInfo = {};
-  debugger
+
   var playerOneArray = playerOne.split(' ');
   var playerOneFN = playerOneArray.shift();
-  debugger
-  playerOneLN = playerOneArray.shift().slice(0, -1);
-  console.log(playerOneFN);
-  console.log(playerOneArray);
-  console.log(playerOneLN);
+  var playerOneLN = playerOneArray.shift().slice(0, -1);
   playerOneInfo = {
-
+    season: yearOne,
+    positions: position,
+    firstName: playerOneFN,
+    lastName: playerOneLN
   }
+
+  var playerTwoArray = playerTwo.split(' ');
+  var playerTwoFN = playerTwoArray.shift();
+  var playerTwoLN = playerTwoArray.shift().slice(0, -1);
+  playerTwoInfo = {
+    season: yearTwo,
+    positions: position,
+    firstName: playerTwoFN,
+    lastName: playerTwoLN
+  }
+  debugger
+
+  // displayStats(playerOneInfo, playerTwoInfo);
 
 }
 // ---------------------------  User Event fxns.  ---------------------------------
@@ -139,14 +166,12 @@ function selectCompare(){
     e.preventDefault();
     var position = $('#position-choice').find('option:selected').val();
     var playerOne = $('#player-one').find('option:selected').val();
-      // console.log(playerOne);
     var yearOne = $('#player-one-year').find('option:selected').val();
-      // console.log(yearOne);
     var playerTwo = $('#player-two').find('option:selected').val();
-      // console.log(playerTwo);
     var yearTwo = $('#player-two-year').find('option:selected').val();
-    // console.log(yearTwo);
     debugger
+    // state.player = playerOne;
+    // state.year = yearOne;
     getStatsFromAPI(position, yearOne, displayStats);
     relevantInfo(position, playerOne, yearOne, playerTwo, yearTwo);
   });
@@ -154,5 +179,3 @@ function selectCompare(){
 
 $(function(){pickPosition();});
 selectCompare();
-
-
