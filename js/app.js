@@ -53,7 +53,7 @@ function displayDropdown(playerData){
     player = {
       name: selectedPlayers[i].firstName + ' ' + selectedPlayers[i].lastName,
       team: selectedPlayers[i].teamAbbr,
-      alpha: selectedPlayers[i].lastName,
+      alpha: selectedPlayers[i].lastName
     };
     players.push(player);
   }
@@ -85,26 +85,49 @@ function alphaSort(a, b) {
 function displayStats(statData){
   debugger
   var selectedPosition = Object.keys(statData.positions)[0];
-  var selectedPlayers = statData.positions[Object.keys(statData.positions)[0]];
+  var selectedPlayerOne = statData.positions[Object.keys(statData.positions)[0]];
+  // var selectedYearOne = ;
+  // var selectedPlayerTwo = ;
+  // var selectedYearTwo = ;
+
+  // console.log(playerOne);
+
+  var testingDynamicInput = '<div>' + selectedPlayerOne.firstName + ' ' + selectedPlayerOne.lastName + '</div>';
 
   var testingOutputOne = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
   debugger
   var testingOutputTwo = '<div>' + selectedPlayers[16].firstName + ' ' + selectedPlayers[16].lastName + '</div>';
 
-  console.log(testingOutputOne);
-  console.log(testingOutputTwo);
+  // console.log(testingOutputOne);
+  // console.log(testingOutputTwo);
 
   $('#player-one-stuff').html(testingOutputOne);
   $('#player-two-stuff').html(testingOutputTwo);
 }
 
+function relevantInfo(position, playerOne, yearOne, playerTwo, yearTwo){
+  var playerOneInfo = {};
+  var playerTwoInfo = {};
+  debugger
+  var playerOneArray = playerOne.split(' ');
+  var playerOneFN = playerOneArray.shift();
+  debugger
+  playerOneLN = playerOneArray.shift().slice(0, -1);
+  console.log(playerOneFN);
+  console.log(playerOneArray);
+  console.log(playerOneLN);
+  playerOneInfo = {
+
+  }
+
+}
 // ---------------------------  User Event fxns.  ---------------------------------
 
 function pickPosition(){
   $('#position-choice').click(function(e){
     e.preventDefault();
     debugger
-    var position = $(this).find('option:selected').val();
+    var position = $('#position-choice').val();
     debugger
     console.log("Why can't the fucking position be selected " + position);
     getPlayersFromAPI("2016", "1", position, displayDropdown);
@@ -116,15 +139,16 @@ function selectCompare(){
     e.preventDefault();
     var position = $('#position-choice').find('option:selected').val();
     var playerOne = $('#player-one').find('option:selected').val();
-      console.log(playerOne);
+      // console.log(playerOne);
     var yearOne = $('#player-one-year').find('option:selected').val();
-      console.log(yearOne);
+      // console.log(yearOne);
     var playerTwo = $('#player-two').find('option:selected').val();
-      console.log(playerTwo);
+      // console.log(playerTwo);
     var yearTwo = $('#player-two-year').find('option:selected').val();
-    console.log(yearTwo);
+    // console.log(yearTwo);
     debugger
-    getStatsFromAPI(position, year, displayStats);
+    getStatsFromAPI(position, yearOne, displayStats);
+    relevantInfo(position, playerOne, yearOne, playerTwo, yearTwo);
   });
 }
 
