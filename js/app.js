@@ -2,8 +2,14 @@ var endpointURLScoring = "http://api.fantasy.nfl.com/v1/players/scoringleaders";
 var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
 var state = {
-  player: '',
-  year: ''
+  selected:{
+    year: '',
+    position:'',
+    week:'',
+    playerOne:'',
+    playerTwo:'',
+  },
+  results:null;
   // , week: ''
 };
 
@@ -49,6 +55,7 @@ function getStatsFromAPI(position, year, callback){
 
 // Callback Fxn that displays a list of players in a dropdown menu for user selection for both Player 1 and Player 2.
 function displayDropdown(playerData){
+  state.results=playerData;
   var player = {};
   var players = [];
   var resultElement = '';
@@ -89,29 +96,17 @@ function alphaSort(a, b) {
 
 
 function displayStats(statData){
+   console.log(state);
+   console.log(statData);
+debugger
 
-  var selectedPosition = Object.keys(statData.positions)[0];
-  var selectedPlayer = statData.positions[Object.keys(statData.positions)[0]];
-
-  var testingDynamicInput = '<div>' + selectedPlayerOne.firstName + ' ' + selectedPlayerOne.lastName + '</div>';
-
-  var testingOutputOne = '<div>' + selectedPlayers[1].firstName + ' ' + selectedPlayers[1].lastName + '</div>';
-  debugger
-  var testingOutputTwo = '<div>' + selectedPlayers[16].firstName + ' ' + selectedPlayers[16].lastName + '</div>';
-
-
-  $('#player-stat-display').html(testingOutputTwo);
-}
-
-function relevantInfo(position, player, year){
   var playerInfo = {};
-  // var playerTwoInfo = {};
 
   var playerArray = player.split(' ');
   var playerFN = playerArray.shift();
   var playerLN = playerArray.shift().slice(0, -1);
   playerInfo = {
-    season: year,
+    season: state.year,
     positions: position,
     firstName: playerFN,
     lastName: playerLN
@@ -119,26 +114,20 @@ function relevantInfo(position, player, year){
   debugger
   console.log(playerInfo);
 
-  // var playerTwoArray = playerTwo.split(' ');
-  // var playerTwoFN = playerTwoArray.shift();
-  // var playerTwoLN = playerTwoArray.shift().slice(0, -1);
-  // playerTwoInfo = {
-  //   season: yearTwo,
-  //   positions: position,
-  //   firstName: playerTwoFN,
-  //   lastName: playerTwoLN
-  // }
-  debugger
+  var selectedPosition = Object.keys(statData.positions)[0];
+  var selectedPlayer = statData.positions[Object.keys(statData.positions)[0]];
 
-  // displayStats(playerOneInfo, playerTwoInfo);
 
+  $('#player-stat-display').html(testingOutputTwo);
 }
+
+
 // ---------------------------  User Event fxns.  ---------------------------------
 
 function pickPosition(){
-  $('#position-choice').click(function(e){
+  $('#position-choice').change(function(e){
     e.preventDefault();
-    debugger
+
     var position = $('#position-choice').val();
     debugger
     console.log("Why can't the fucking position be selected " + position);
@@ -149,21 +138,29 @@ function pickPosition(){
 function selectCompare(){
   $('.compare-initial').click(function(e){
     e.preventDefault();
+
     var position = $('#position-choice').find('option:selected').val();
     var playerOne = $('#player-one').find('option:selected').val();
-    var yearOne = $('#player-one-year').find('option:selected').val();
+    state.selected.year = $('#player-one-year').find('option:selected').val();
     var playerTwo = $('#player-two').find('option:selected').val();
     var yearTwo = $('#player-two-year').find('option:selected').val();
     debugger
-    state.player = playerOne;
-    state.year = yearOne;
+    state.playerOne = playerOne;
+    state.yearOne = yearOne;
+    state.playerTwo = playerTwo;
+    state.yearTwo = yearTwo;
     debugger
     console.log(state);
     debugger
     getStatsFromAPI(position, state.year, displayStats);
-    relevantInfo(position, state.player, state.year);
   });
 }
+
+// $("a.demo-2").simplePopup({
+//   type: "html",
+//   htmlSelector: "#myPopup"
+// });
+
 
 $(function(){pickPosition();});
 selectCompare();
