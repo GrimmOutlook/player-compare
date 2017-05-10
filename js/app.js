@@ -7,24 +7,23 @@ var state = {
     position:'',
     week:'',
     playerOne:'',
-    playerTwo:'',
+    playerTwo:''
   },
-  results:null;
-  // , week: ''
+  results: null
 };
 
 
 // ---------------------------  API Call fxns.  ---------------------------------
 
 // Fxn to GET list of players from API scoringleaders endpoint
-function getPlayersFromAPI(year, week, position, callback){
+function getPlayersFromAPI(state, callback){
   debugger
   var settings = {
     url: endpointURLScoring,
     data: {
-      season: year,
-      week: week,
-      position: position,
+      season: state.selected.year,
+      week: state.selected.week,
+      position: state.selected.position,
       format: 'json'
     },
     dataType: 'json',
@@ -34,33 +33,34 @@ function getPlayersFromAPI(year, week, position, callback){
   $.ajax(settings);
 }
 
-// Fxn to GET stats from API scoringleaders endpoint
-function getStatsFromAPI(position, year, callback){
-  debugger
-  var settings = {
-    url: endpointURLScoring,
-    data: {
-      season: year,
-      position: position,
-      format: 'json'
-    },
-    dataType: 'json',
-    method: 'GET',
-    success: callback
-  };
-  $.ajax(settings);
-}
+// Fxn to GET stats from API scoringleaders endpoint  - USE ONE GET API FXN
+// function getStatsFromAPI(position, year, callback){
+//   debugger
+//   var settings = {
+//     url: endpointURLScoring,
+//     data: {
+//       season: year,
+//       position: position,
+//       format: 'json'
+//     },
+//     dataType: 'json',
+//     method: 'GET',
+//     success: callback
+//   };
+//   $.ajax(settings);
+// }
 
 // -------------------------  Callback Display fxns.  ---------------------------------
 
 // Callback Fxn that displays a list of players in a dropdown menu for user selection for both Player 1 and Player 2.
 function displayDropdown(playerData){
-  state.results=playerData;
+debugger
   var player = {};
   var players = [];
   var resultElement = '';
   var selectedPosition = Object.keys(playerData.positions)[0];
-  var selectedPlayers = playerData.positions[Object.keys(playerData.positions)[0]];
+  var selectedPlayers = playerData.positions[selectedPosition];
+  state.results = selectedPlayers;
 
   for(var i = 0; i < selectedPlayers.length; i++){
     player = {
@@ -95,9 +95,9 @@ function alphaSort(a, b) {
   }
 
 
-function displayStats(statData){
-   console.log(state);
-   console.log(statData);
+function displayStats(state){
+   console.log(state.results);
+
 debugger
 
   var playerInfo = {};
@@ -124,14 +124,14 @@ debugger
 
 // ---------------------------  User Event fxns.  ---------------------------------
 
-function pickPosition(){
-  $('#position-choice').change(function(e){
+function initialSelect(){
+  $('.initial-select').click(function(e){
     e.preventDefault();
-
-    var position = $('#position-choice').val();
+    state.selected.position = $('#position-choice').val();
+    state.selected.year = $('#year').val();
+    state.selected.week = $('#week').val();
     debugger
-    console.log("Why can't the fucking position be selected " + position);
-    getPlayersFromAPI("2016", "1", position, displayDropdown);
+    getPlayersFromAPI(state, displayDropdown);
   });
 }
 
@@ -139,20 +139,12 @@ function selectCompare(){
   $('.compare-initial').click(function(e){
     e.preventDefault();
 
-    var position = $('#position-choice').find('option:selected').val();
-    var playerOne = $('#player-one').find('option:selected').val();
-    state.selected.year = $('#player-one-year').find('option:selected').val();
-    var playerTwo = $('#player-two').find('option:selected').val();
-    var yearTwo = $('#player-two-year').find('option:selected').val();
-    debugger
-    state.playerOne = playerOne;
-    state.yearOne = yearOne;
-    state.playerTwo = playerTwo;
-    state.yearTwo = yearTwo;
-    debugger
+    state.selected.playerOne = $('#player-one').find('option:selected').val();
+    state.selected.playerTwo = $('#player-two').find('option:selected').val();
+
     console.log(state);
     debugger
-    getStatsFromAPI(position, state.year, displayStats);
+    displayStats(state);
   });
 }
 
@@ -162,5 +154,5 @@ function selectCompare(){
 // });
 
 
-$(function(){pickPosition();});
+$(function(){initialSelect();});
 selectCompare();
