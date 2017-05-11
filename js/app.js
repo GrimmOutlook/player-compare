@@ -97,25 +97,36 @@ function alphaSort(a, b) {
 
 function displayStats(state){
    console.log(state.results);
-
 debugger
+
+//Get players first and last name out of state.selected.playerOne
+// ... and save into an Array? or an Object?
 
   var playerInfo = {};
 
-  var playerArray = player.split(' ');
+  var playerArray = state.selected.playerOne.split(' ');
   var playerFN = playerArray.shift();
   var playerLN = playerArray.shift().slice(0, -1);
   playerInfo = {
-    season: state.year,
-    positions: position,
     firstName: playerFN,
     lastName: playerLN
   }
   debugger
   console.log(playerInfo);
 
-  var selectedPosition = Object.keys(statData.positions)[0];
-  var selectedPlayer = statData.positions[Object.keys(statData.positions)[0]];
+  // if playerInfo.firstName === state.results[0].firstName
+  // && playerInfo.lastName === state.results[0].lastName
+  // then display state.results[0].stats
+  console.log(state.results[0]);
+
+  if ((playerInfo.firstName === state.results[0].firstName) && (playerInfo.lastName === state.results[0].lastName)){
+    console.log('Hi there' + state.results[0].stats.RecYds);
+  }
+  else{
+    console.log('Bummer');
+  }
+
+  debugger
 
 
   $('#player-stat-display').html(testingOutputTwo);
