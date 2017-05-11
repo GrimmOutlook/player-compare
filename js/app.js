@@ -96,40 +96,35 @@ function alphaSort(a, b) {
 
 
 function displayStats(state){
-   console.log(state.results);
+
+  var playerArrayOne = state.selected.playerOne.split(' ');
+  var playerOneFN = playerArrayOne.shift();
+  var playerOneLN = playerArrayOne.shift().slice(0, -1);
+
+  var playerArrayTwo = state.selected.playerTwo.split(' ');
+  var playerTwoFN = playerArrayTwo.shift();
+  var playerTwoLN = playerArrayTwo.shift().slice(0, -1);
+
+  for (var i = 0; i < state.results.length; i++){
+    if ((playerOneFN === state.results[i].firstName) && (playerOneLN === state.results[i].lastName)){
+      var playerOneStats =  state.results[i].stats;
+      // if state.results[i].stats.WHATEVERSTAT = false, display 0
+    }
+
+    if ((playerTwoFN === state.results[i].firstName) && (playerTwoLN === state.results[i].lastName)){
+      var playerTwoStats =  state.results[i].stats;
+    }
+  }
+
 debugger
 
-//Get players first and last name out of state.selected.playerOne
-// ... and save into an Array? or an Object?
+var displayOne = '<h2>' + state.selected.playerOne + '</h2>' + '<ul><li>' + playerOneStats.PassYds + '</li><li>' + playerOneStats.PassTDs + '</li><li>' + playerOneStats.Int + '</li><li>' + playerOneStats.RushYds + '</li><li>' + playerOneStats.RushTDs + '</li><li>' + playerOneStats.RecYds + '</li><li>' + playerOneStats.RecTDs + '</li><li>' + playerOneStats.FumTd + '</li><li>' + playerOneStats.TwoPt + '</li><li>' + playerOneStats.FumLost + '</li></ul>';
 
-  var playerInfo = {};
-
-  var playerArray = state.selected.playerOne.split(' ');
-  var playerFN = playerArray.shift();
-  var playerLN = playerArray.shift().slice(0, -1);
-  playerInfo = {
-    firstName: playerFN,
-    lastName: playerLN
-  }
-  debugger
-  console.log(playerInfo);
-
-  // if playerInfo.firstName === state.results[0].firstName
-  // && playerInfo.lastName === state.results[0].lastName
-  // then display state.results[0].stats
-  console.log(state.results[0]);
-
-  if ((playerInfo.firstName === state.results[0].firstName) && (playerInfo.lastName === state.results[0].lastName)){
-    console.log('Hi there' + state.results[0].stats.RecYds);
-  }
-  else{
-    console.log('Bummer');
-  }
-
-  debugger
+var displayTwo = '<h2>' + state.selected.playerTwo + '</h2>' + '<ul><li>' + playerTwoStats.PassYds + '</li><li>' + playerTwoStats.PassTDs + '</li><li>' + playerTwoStats.Int + '</li><li>' + playerTwoStats.RushYds + '</li><li>' + playerTwoStats.RushTDs + '</li><li>' + playerTwoStats.RecYds + '</li><li>' + playerTwoStats.RecTDs + '</li><li>' + playerTwoStats.FumTd + '</li><li>' + playerTwoStats.TwoPt + '</li><li>' + playerTwoStats.FumLost + '</li></ul>';
 
 
-  $('#player-stat-display').html(testingOutputTwo);
+  $('#playerOne-stat-display').html(displayOne);
+  $('#playerTwo-stat-display').html(displayTwo);
 }
 
 
