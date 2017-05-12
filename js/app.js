@@ -58,8 +58,13 @@ debugger
   var player = {};
   var players = [];
   var resultElement = '';
+  debugger
   var selectedPosition = Object.keys(playerData.positions)[0];
-  var selectedPlayers = playerData.positions[selectedPosition];
+  console.log(selectedPosition);
+  debugger
+  var selectedPlayers = playerData.positions[selectedPosition]; //array of objects
+  console.log(selectedPlayers);
+  debugger
   state.results = selectedPlayers;
 
   for(var i = 0; i < selectedPlayers.length; i++){
@@ -113,14 +118,71 @@ function displayStats(state){
 
     if ((playerTwoFN === state.results[i].firstName) && (playerTwoLN === state.results[i].lastName)){
       var playerTwoStats =  state.results[i].stats;
+      // if playerTwoStats.keys
     }
   }
+debugger
+  console.log(playerOneStats); // is a key equal to: stats.  stats is an object, that has as its value another object containing 10 k-v pairs.
+  // How to loop through those keys to obtain each of the corresp. values?
+  // playerOneStats.PassYds should give me the value of the PassYds key
+
+//  How do I loop through all the keys?!?!?!?!?! Like this?
+  //   for (var k = 0; k < 10; k++){
+  //     var playerOneKeys = Object.keys(playerOneStats)[k];
+  //     var valueToTest = playerOneStats[playerOneKeys];
+
+  //     if(valueToTest === false){
+  //       valueToTest = 0;
+  //     }
+
+  //     console.log(valueToTest);
+  //   }
+
+  // console.log(playerOneStats);
+
+  var keyArray = ['PassYds', 'FumTD'];
+
+  console.log(keyArray[0]);
+  debugger
+
+  if (playerOneStats.PassYds === false){
+    playerOneStats.PassYds = 0;
+  }
+  if (playerOneStats.PassTDs === false){
+    playerOneStats.PassTDs = 0;
+  }
+  if (playerOneStats.Int === false){
+    playerOneStats.Int = 0;
+  }
+  if (playerOneStats.RushYds === false){
+    playerOneStats.RushYds = 0;
+  }
+  if (playerOneStats.RushTDs === false){
+    playerOneStats.RushTDs = 0;
+  }
+  if (playerOneStats.RecYds === false){
+    playerOneStats.RecYds = 0;
+  }
+  if (playerOneStats.RecTDs === false){
+    playerOneStats.RecTDs = 0;
+  }
+  if (playerOneStats.FumTD === false){
+    playerOneStats.FumTD = 0;
+  }
+  if (playerOneStats.TwoPt === false){
+    playerOneStats.TwoPt = 0;
+  }
+  if (playerOneStats.FumLost === false){
+    playerOneStats.FumLost = 0;
+  }
+
+
 
 debugger
 
-var displayOne = '<h2>' + state.selected.playerOne + '</h2>' + '<ul><li>' + playerOneStats.PassYds + '</li><li>' + playerOneStats.PassTDs + '</li><li>' + playerOneStats.Int + '</li><li>' + playerOneStats.RushYds + '</li><li>' + playerOneStats.RushTDs + '</li><li>' + playerOneStats.RecYds + '</li><li>' + playerOneStats.RecTDs + '</li><li>' + playerOneStats.FumTd + '</li><li>' + playerOneStats.TwoPt + '</li><li>' + playerOneStats.FumLost + '</li></ul>';
+var displayOne = '<h2>' + state.selected.playerOne + '</h2>' + '<ul><li>' + playerOneStats.PassYds + '</li><li>' + playerOneStats.PassTDs + '</li><li>' + playerOneStats.Int + '</li><li>' + playerOneStats.RushYds + '</li><li>' + playerOneStats.RushTDs + '</li><li>' + playerOneStats.RecYds + '</li><li>' + playerOneStats.RecTDs + '</li><li>' + playerOneStats.FumTD + '</li><li>' + playerOneStats.TwoPt + '</li><li>' + playerOneStats.FumLost + '</li></ul>';
 
-var displayTwo = '<h2>' + state.selected.playerTwo + '</h2>' + '<ul><li>' + playerTwoStats.PassYds + '</li><li>' + playerTwoStats.PassTDs + '</li><li>' + playerTwoStats.Int + '</li><li>' + playerTwoStats.RushYds + '</li><li>' + playerTwoStats.RushTDs + '</li><li>' + playerTwoStats.RecYds + '</li><li>' + playerTwoStats.RecTDs + '</li><li>' + playerTwoStats.FumTd + '</li><li>' + playerTwoStats.TwoPt + '</li><li>' + playerTwoStats.FumLost + '</li></ul>';
+var displayTwo = '<h2>' + state.selected.playerTwo + '</h2>' + '<ul><li>' + playerTwoStats.PassYds + '</li><li>' + playerTwoStats.PassTDs + '</li><li>' + playerTwoStats.Int + '</li><li>' + playerTwoStats.RushYds + '</li><li>' + playerTwoStats.RushTDs + '</li><li>' + playerTwoStats.RecYds + '</li><li>' + playerTwoStats.RecTDs + '</li><li>' + playerTwoStats.FumTD + '</li><li>' + playerTwoStats.TwoPt + '</li><li>' + playerTwoStats.FumLost + '</li></ul>';
 
 
   $('#playerOne-stat-display').html(displayOne);
