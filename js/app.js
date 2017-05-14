@@ -123,31 +123,30 @@ function displayStats(state){
   }
 
   var displayOne = '<h2>' + state.selected.playerOne + '</h2><h3>Look at My Awesome Stats:</h3>' + '<ul>';
-  for (var k = 0; k < 10; k++){
-    var statKeyOne = Object.keys(playerOneStats)[k];
-    var statValueOne = playerOneStats[statKeyOne];
+    for (var k = 0; k < 10; k++){
+      var statKeyOne = Object.keys(playerOneStats)[k];
+      var statValueOne = playerOneStats[statKeyOne];
 
-    if (statValueOne === false){
-      statValueOne = 0;
+      if (statValueOne === false){
+        statValueOne = 0;
+      }
+      displayOne += '<li class="stat1">' + statKeyOne + ': ' + statValueOne + '</li>';
     }
-    displayOne += '<li>' + statKeyOne + ': ' + statValueOne + '</li>';
-  }
   displayOne += '</ul>';
 
-
-debugger
-
   var displayTwo = '<h2>' + state.selected.playerTwo + '</h2><h3>No, Look at MY Awesome Stats:</h3>' + '<ul>';
-  for (var k = 0; k < 10; k++){
-    var statKeyTwo = Object.keys(playerTwoStats)[k];
-    var statValueTwo = playerTwoStats[statKeyTwo];
+    for (var k = 0; k < 10; k++){
+      var statKeyTwo = Object.keys(playerTwoStats)[k];
+      var statValueTwo = playerTwoStats[statKeyTwo];
 
-    if (statValueTwo === false){
-      statValueTwo = 0;
+      if (statValueTwo === false){
+        statValueTwo = 0;
+      }
+      displayTwo += '<li class="stat2">' + statKeyTwo + ': ' + statValueTwo + '</li>';
     }
-    displayTwo += '<li>' + statKeyTwo + ': ' + statValueTwo + '</li>';
-  }
   displayTwo += '</ul>';
+
+  compare(playerOneStats, playerTwoStats);
 
   $('#playerOne-stat-display').html(displayOne);
   $('#playerTwo-stat-display').html(displayTwo);
@@ -155,35 +154,36 @@ debugger
   displayPhoto(playerOneObject, playerTwoObject);
 }
 
-function compare(){
+function compare(playerOneStats, playerTwoStats){
+debugger
+
   for (var k = 0; k < 10; k++){
     var statKeyOne = Object.keys(playerOneStats)[k];
     var statValueOne = playerOneStats[statKeyOne];
 
     var statKeyTwo = Object.keys(playerTwoStats)[k];
     var statValueTwo = playerTwoStats[statKeyTwo];
-
-    if (statValueOne >= statValueTwo){
-      //highlight statValueOne - add a class to that list item
+debugger
+    if (statValueOne > statValueTwo){
+      $('.stat1').addClass('highlight');
+      //highlight statValueOne - add a class to that list item - how do I add that class when it is not part of the original HTML?
+    }
+    else if (statValueOne < statValueTwo){
+      $('.stat2').addClass('highlight');
+      //highlightstatValueTwo
     }
     else{
-      //highlightstatValueTwo
+      console.log('how do i highlight both?');
+      //highlight both stat values
     }
   }
 }
 
 function displayPhoto(playerOneObject, playerTwoObject){
-
-  console.log('displayPhoto fxn.: ' + playerOneObject);
-  // console.log('displayPhoto fxn.: ' + playerTwoStats);
-  debugger
-
   var headshotOne = '<img src="http://s.nflcdn.com/static/content/public/static/img/fantasy/transparent/200x200/' + playerOneObject.esbid + '.png">';
-
   var teamLogoOne = '<img src="http://fantasy.nfl.com/static/img/clubs/' + playerOneObject.teamAbbr.toLowerCase() + '/280x240_1494349607.png">';
 
   var headshotTwo = '<img src="http://s.nflcdn.com/static/content/public/static/img/fantasy/transparent/200x200/' + playerTwoObject.esbid + '.png">';
-
   var teamLogoTwo = '<img src="http://fantasy.nfl.com/static/img/clubs/' + playerTwoObject.teamAbbr.toLowerCase() + '/280x240_1494349607.png">';
 
   $('#playerOne-headshot').html(headshotOne);
