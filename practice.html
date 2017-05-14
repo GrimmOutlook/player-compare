@@ -5,8 +5,7 @@
   <title>NFL Player Compare</title>
   <link rel="stylesheet" href="stylesheets/normalize.css">
   <link rel="stylesheet" href="stylesheets/main.css">
-  <link rel="stylesheet" href="stylesheets/jquery.simple-popup.min.css">
-  <link rel="stylesheet" href="stylesheets/jquery.simple-popup.settings.css">
+  <link rel="stylesheet" href="stylesheets/popup.css">
 </head>
 <body>
 
@@ -111,51 +110,40 @@
 
 
 
-    <a class="popup">
+    <a>
      <button type="submit" class="compare-initial">Compare</button>
     </a>
 
-    <div id="playerOne-stat-display">
+    <div class="overlay">
+      <div class="content">
+        <div id="close"> <!-- Stick all the dynamically generated content here -->
 
+          <div id="playerOne-stat-display">
+          </div>
+
+          <div id="playerOne-headshot">
+          </div>
+
+          <div id="playerOne-logo">
+          </div>
+
+          <div id="playerTwo-stat-display">
+          </div>
+
+          <div id="playerTwo-headshot">
+          </div>
+
+          <div id="playerTwo-logo">
+          </div>
+
+        </div>
+      </div>
     </div>
-
-    <div id="playerOne-headshot">
-
-    </div>
-
-    <div id="playerOne-logo">
-
-    </div>
-
-    <div id="playerTwo-stat-display">
-
-    </div>
-
-    <div id="playerTwo-headshot">
-
-    </div>
-
-    <div id="playerTwo-logo">
-
-    </div>
-
-    <!-- <a class="demo-2">
-      Launch
-    </a>
-
-    <div id="myPopup">
-
-     <h1> My popup content here
-      Hopefully this works!!!!</h1>
-
-    </div> -->
-
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script src="js/jquery.simple-popup.min.js"></script>
 </body>
 </html>

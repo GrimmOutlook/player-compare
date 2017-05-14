@@ -1,5 +1,4 @@
 var endpointURLScoring = "http://api.fantasy.nfl.com/v1/players/scoringleaders";
-var endpointURLPhoto = "http://api.fantasy.nfl.com/v1/players/weekvideos";
 
 var state = {
   selected:{
@@ -208,26 +207,30 @@ function initialSelect(){
 
 function selectCompare(){
   $('.compare-initial').click(function(e){
-    e.preventDefault();
+    $(".overlay").addClass("is-on");
+    // e.preventDefault();
     state.selected.playerOne = $('#player-one').find('option:selected').val();
     state.selected.playerTwo = $('#player-two').find('option:selected').val();
     displayStats(state);
   });
 }
 
-//don't use live, use on
-//Try it with a "dummy" button to see if it works.
-// $('a.popup').live('click', function(){
-//     newwindow=window.open($(this).attr('href'),'','height=200,width=150');
-//     if (window.focus) {newwindow.focus()}
-//     return false;
-//   });
-
-// $("a.demo-2").simplePopup({
-//   type: "html",
-//   htmlSelector: "#myPopup"
-// });
+function closePopup(){
+  $("#close").on("click", function() {
+  $(".overlay").removeClass("is-on");
+  });
+}
 
 
-$(function(){initialSelect();});
-selectCompare();
+$(function(){
+  initialSelect();
+  selectCompare();
+  closePopup();
+});
+
+
+
+
+
+
+
