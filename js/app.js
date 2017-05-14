@@ -130,7 +130,7 @@ function displayStats(state){
       if (statValueOne === false){
         statValueOne = 0;
       }
-      displayOne += '<li class="stat1">' + statKeyOne + ': ' + statValueOne + '</li>';
+      displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
     }
   displayOne += '</ul>';
 
@@ -142,14 +142,16 @@ function displayStats(state){
       if (statValueTwo === false){
         statValueTwo = 0;
       }
-      displayTwo += '<li class="stat2">' + statKeyTwo + ': ' + statValueTwo + '</li>';
+      displayTwo += '<li class="stat2-' + statKeyTwo + '">' + statKeyTwo + ': ' + statValueTwo + '</li>';
     }
   displayTwo += '</ul>';
 
-  compare(playerOneStats, playerTwoStats);
+debugger
 
   $('#playerOne-stat-display').html(displayOne);
   $('#playerTwo-stat-display').html(displayTwo);
+
+  compare(playerOneStats, playerTwoStats);
 
   displayPhoto(playerOneObject, playerTwoObject);
 }
@@ -165,11 +167,11 @@ debugger
     var statValueTwo = playerTwoStats[statKeyTwo];
 debugger
     if (statValueOne > statValueTwo){
-      $('.stat1').addClass('highlight');
-      //highlight statValueOne - add a class to that list item - how do I add that class when it is not part of the original HTML?
+      $('.stat1-' + statKeyOne).addClass('highlight');
+      //highlight statValueOne - add a class to that list item
     }
     else if (statValueOne < statValueTwo){
-      $('.stat2').addClass('highlight');
+      $('.stat2-' + statKeyTwo).addClass('highlight');
       //highlightstatValueTwo
     }
     else{
