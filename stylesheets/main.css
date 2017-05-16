@@ -6,46 +6,105 @@
 
 .compare {
   display: grid;
-  grid-template-rows: 80px min-content min-content;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 280px min-content;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
   grid-gap: 10px;
 }
 
 .masthead {
   grid-row: 1;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
   background-color: #009933;
+}
+
+#close button {
+  grid-row: 1;
+  grid-column: 4;
+  font-size: 15px;
+  color: #999;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
 }
 
 .player-one-info {
   grid-row: 2;
   grid-column: 1;
+  margin-left: 3%;
+  height: 200px;
+  width: 200px;
+  /*border: 1px solid black;*/
+  justify-self: end;
+}
+
+.player-one-info aside {
+  grid-row: 2;
+  grid-column: 2;
+  margin-left: 3%;
+  justify-self: start;
 }
 
 .player-two-info {
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 3;
+  height: 200px;
+  width: 200px;
+  /*border: 1px solid black;*/
+  justify-self: end;
+}
+
+.player-two-info aside {
+  grid-row: 2;
+  grid-column: 4;
+  justify-self: start;
 }
 
 .player-one-stats {
   grid-row: 3;
-  grid-column: 1;
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+
+#playerOne-logo {
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  justify-self: center;
+  opacity: 0.20;
 }
 
 .player-two-stats {
   grid-row: 3;
-  grid-column: 2;
+  grid-column: 3 / span 2;
+  justify-self: center;
 }
 
-img {
-  height: 200px;
-  width: 150px;
+#playerTwo-logo {
+  grid-row: 3;
+  grid-column: 3 / span 2;
+  justify-self: center;
+  opacity: 0.20;
+}
+
+.player-one-info, .player-two-info {
   border: 1px solid black;
 }
 
+/* ----------------------------------------------------------------------------- */
+
+/*button {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  padding: 5px 10px;
+  background: yellow;
+  color: black;
+  cursor: pointer;
+}
+*/
+
 /* ------------------------   Grid Layout for choose.html  ----------------------*/
 
-.choose {
+/*.choose {
   display: grid;
   grid-template-rows: 80px 200px min-content 80px 120px 120px 120px;
   grid-template-columns: 1fr 1fr;
@@ -109,11 +168,7 @@ form[name="player-two-year"] {
 .big-image > img {
   height: 200px;
   width: 100%;
-}
-
-#myPopup {
-  display: none;
-}
+}*/
 
 
 

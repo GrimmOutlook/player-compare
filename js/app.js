@@ -207,7 +207,7 @@ function initialSelect(){
 
 function selectCompare(){
   $('.compare-initial').click(function(e){
-    $(".overlay").addClass("is-on");
+    $('.overlay').addClass('is-on');
     // e.preventDefault();
     state.selected.playerOne = $('#player-one').find('option:selected').val();
     state.selected.playerTwo = $('#player-two').find('option:selected').val();
@@ -216,8 +216,8 @@ function selectCompare(){
 }
 
 function closePopup(){
-  $("#close").on("click", function() {
-  $(".overlay").removeClass("is-on");
+  $('#close').on('click', function() {
+  $('.overlay').removeClass('is-on');
   });
 }
 

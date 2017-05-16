@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>NFL Player Compare</title>
   <link rel="stylesheet" href="stylesheets/normalize.css">
-  <link rel="stylesheet" href="stylesheets/main.css">
   <link rel="stylesheet" href="stylesheets/popup.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
 
@@ -74,13 +74,9 @@
         </div>
     </form>
 
-
-
-
     <a href="#">
      <button type="submit" class="initial-select">Start</button>
     </a>
-
 
   <form name="player-one" method="POST" action="">
     <h2 align="left">Choose Your First Player</h2>
@@ -116,25 +112,55 @@
 
     <div class="overlay">
       <div class="content">
-        <div id="close"> <!-- Stick all the dynamically generated content here -->
+        <div class="compare">
+            <div class="masthead">
+              <p>NFL Player Compare</p>
+            </div>
 
-          <div id="playerOne-stat-display">
+            <div id="close">
+              <button>Close and Choose Again</button>
+            </div>
+
+            <div id="playerOne-headshot" class="player-one-info">
+
+            </div>
+            <div>
+              <aside>
+                <p>Player</p>
+                <p>Team</p>
+                <p>Position</p>
+              </aside>
+            </div>
+
+            <div class="player-one-stats">
+              <h2>2016 Stats:</h2>
+              <div id="playerOne-stat-display" class="player-one-stats"></div>
+            </div>
+
+          <div id="playerOne-logo"> <!-- class="player-one-info"> -->
           </div>
 
-          <div id="playerOne-headshot">
+
+          <div id="playerTwo-headshot" class="player-two-info">
+
+            </div>
+            <div>
+              <aside>
+                <p>Player</p>
+                <p>Team</p>
+                <p>Position</p>
+              </aside>
+            </div>
+
+          <div class="player-two-stats">
+              <h2>2016 Stats:</h2>
+              <div id="playerTwo-stat-display" class="player-two-stats">
+              </div>
           </div>
 
-          <div id="playerOne-logo">
+          <div id="playerTwo-logo">  <!-- class="player-two-info"> -->
           </div>
 
-          <div id="playerTwo-stat-display">
-          </div>
-
-          <div id="playerTwo-headshot">
-          </div>
-
-          <div id="playerTwo-logo">
-          </div>
 
         </div>
       </div>
