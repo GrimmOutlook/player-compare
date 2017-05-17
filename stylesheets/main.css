@@ -104,7 +104,7 @@
 
 /* ------------------------   Grid Layout for choose.html  ----------------------*/
 
-/*.choose {
+.choose {
   display: grid;
   grid-template-rows: 80px 200px min-content 80px 120px 120px 120px;
   grid-template-columns: 1fr 1fr;
@@ -168,7 +168,7 @@ form[name="player-two-year"] {
 .big-image > img {
   height: 200px;
   width: 100%;
-}*/
+}
 
 
 

@@ -105,9 +105,6 @@ function displayStats(state){
   var playerArrayTwo = state.selected.playerTwo.split(' ');
   var playerTwoFN = playerArrayTwo.shift();
   var playerTwoLN = playerArrayTwo.shift().slice(0, -1);
-  debugger
-  console.log(state.results);
-  debugger
 
   for (var i = 0; i < state.results.length; i++){
     if ((playerOneFN === state.results[i].firstName) && (playerOneLN === state.results[i].lastName)){
@@ -121,19 +118,33 @@ function displayStats(state){
     }
   }
 
-  var displayOne = '<h2>' + state.selected.playerOne + '</h2><h3>Look at My Awesome Stats:</h3>' + '<ul>';
+  var displayOne = '<h2>Stats for ' + state.selected.year + ', Week ' + state.selected.week + ':</h2>' + '<ul>';
     for (var k = 0; k < 10; k++){
       var statKeyOne = Object.keys(playerOneStats)[k];
       var statValueOne = playerOneStats[statKeyOne];
+        if (statValueOne === false){
+          statValueOne = 0;
+        }
 
-      if (statValueOne === false){
-        statValueOne = 0;
-      }
-      displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+      // switch (state.select.position){
+        //   case "QB":
+        //     // Only for k = 1,2,3,4,5,9,10:
+        // displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+        //     // break;
+        //   case "RB":
+        //   case "WR":
+        //   case "TE":
+        //     // // Only for k = 4,5,6,7,9,10:
+        // displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+        //     // break;
+        //   default:            // "K":
+        //     // Only for k = 1,2,3,4,5,6:
+        displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+        // }
     }
   displayOne += '</ul>';
 
-  var displayTwo = '<h2>' + state.selected.playerTwo + '</h2><h3>No, Look at MY Awesome Stats:</h3>' + '<ul>';
+  var displayTwo = '<h2>Stats for ' + state.selected.year + ', Week ' + state.selected.week + ':</h2>' + '<ul>';
     for (var k = 0; k < 10; k++){
       var statKeyTwo = Object.keys(playerTwoStats)[k];
       var statValueTwo = playerTwoStats[statKeyTwo];
@@ -145,7 +156,8 @@ function displayStats(state){
     }
   displayTwo += '</ul>';
 
-debugger
+  $('.playerOne-bio').html('<h1>' + playerOneFN + ' ' + playerOneLN + '</h1><h2>' + playerOneObject.teamAbbr + '</h2><h2>' + state.selected.position + '</h2>')
+  $('.playerTwo-bio').html('<h1>' + playerTwoFN + ' ' + playerTwoLN + '</h1><h2>' + playerTwoObject.teamAbbr + '</h2><h2>' + state.selected.position + '</h2>')
 
   $('#playerOne-stat-display').html(displayOne);
   $('#playerTwo-stat-display').html(displayTwo);
@@ -167,11 +179,9 @@ debugger
 debugger
     if (statValueOne > statValueTwo){
       $('.stat1-' + statKeyOne).addClass('highlight');
-      //highlight statValueOne - add a class to that list item
     }
     else if (statValueOne < statValueTwo){
       $('.stat2-' + statKeyTwo).addClass('highlight');
-      //highlightstatValueTwo
     }
     else{
       console.log('how do i highlight both?');
