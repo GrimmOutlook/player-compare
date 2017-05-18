@@ -1,5 +1,80 @@
-.highlight {
-  background-color: yellow;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------   Grid Layout for choose.html  ----------------------*/
+
+#choose-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 500px min-content 120px 40px 120px 40px;
+  /*grid-template-rows: auto;*/
+  grid-template-areas:
+    "big-image big-image big-image"
+    "instructions instructions instructions"
+    "form-position form-year form-week"
+    ". select-button ."
+    "form-playerOne . form-playerTwo"
+    ". compare-button .";
+  /*grid-gap: 10px;*/
+}
+
+.big-image {
+  grid-area: big-image;
+}
+
+.big-image {
+  height: 500px;
+  max-width: 100%;
+  background-image: linear-gradient(
+      rgba(0, 85, 15, 0.5),
+      rgba(0, 85, 15, 0.5)
+    ),
+  url('../images/heinzfield.jpg');
+}
+
+.big-image h1 {
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: auto;
+  position: fixed;
+  top: 25%;
+  left: 22%;
+  font-size: 4.5rem;
+}
+
+.instructions {
+  grid-area: instructions;
+}
+
+.form-position {
+  grid-area: form-position;
+}
+
+.form-year {
+  grid-area: form-year;
+}
+
+.form-week {
+  grid-area: form-week;
+}
+
+.select-button {
+  grid-area: select-button;
+}
+
+.form-playerOne {
+  grid-area: form-playerOne;
+}
+
+.form-playerTwo {
+  grid-area: form-playerTwo;
+}
+
+.compare-button {
+  grid-area: compare-button;
 }
 
 /* ------------------------   Grid Layout for compare.html  ----------------------*/
@@ -89,6 +164,10 @@
   border: 1px solid black;
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 /* ----------------------------------------------------------------------------- */
 
 /*button {
@@ -102,16 +181,62 @@
 }
 */
 
-/* ------------------------   Grid Layout for choose.html  ----------------------*/
 
-.choose {
-  display: grid;
-  grid-template-rows: 80px 200px min-content 80px 120px 120px 120px;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
 
-.masthead {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.masthead {
   grid-row: 1;
   grid-column: 1 / span 2;
   background-color: #009933;
@@ -168,7 +293,7 @@ form[name="player-two-year"] {
 .big-image > img {
   height: 200px;
   width: 100%;
-}
+}*/
 
 
 

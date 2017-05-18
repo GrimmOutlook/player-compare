@@ -79,6 +79,7 @@ debugger
   }
 
   $('.player-list').html(resultElement);
+  // $(<some class>)
 }
 
 // Sort names alphabetically
@@ -191,8 +192,8 @@ debugger
       $('.stat2-' + statKeyTwo).addClass('highlight');
     }
     else{
-      console.log('how do i highlight both?');
-      //highlight both stat values
+      console.log('do i highlight both?');
+      //highlight both stat values or not?
     }
   }
 }

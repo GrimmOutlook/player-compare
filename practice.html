@@ -8,105 +8,131 @@
   <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 <body>
+  <div id="choose-container">
 
-  <h1>NFL Player Compare</h1>
+    <div class="big-image">
+      <!-- <img src="images/heinzfield.jpg"> -->
+      <h1>NFL Player Compare</h1>
+    </div>
 
-  <form>
-    <h1>Choose A Position:</h1>
-      <div class="form-group">
-          <label for="position-choice">Position</label>
-          <select name="position-choice" id="position-choice">
-            <option value=""> Please Select </option>
-            <!-- <optgroup label="Select a Position:"> -->
-              <option value="QB">QB</option>
-              <option value="RB">RB</option>
-              <option value="WR">WR</option>
-              <option value="TE">TE</option>
-              <option value="K">K</option>
-            <!-- </optgroup> -->
-          </select>
-        </div>
-  </form>
+    <div class="instructions">
+      <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+    </div>
 
-  <form name="year" method="POST" action="">
-      <h2 align="left">Choose A Year for Comparison</h2>
-        <div class="form-group">
-          <label for="year">Year</label>
-          <select name="year" id="year">
-            <option value="">-- Please Select --</option>
-            <optgroup label="Select a Year:">
-              <option>2016</option>
-              <option>2015</option>
-              <option>2014</option>
-              <option>2013</option>
-              <option>2012</option>
-            </optgroup>
-          </select>
-        </div>
-    </form>
+    <div class="form-position">
+      <form>
+        <h2>Choose A Position:</h2>
+          <div class="form-group">
+              <label for="position-choice">Position</label>
+              <select name="position-choice" id="position-choice">
+                <option value="">-- Please Select --</option>
+                <!-- <optgroup label="Select a Position:"> -->
+                  <option value="QB">QB</option>
+                  <option value="RB">RB</option>
+                  <option value="WR">WR</option>
+                  <option value="TE">TE</option>
+                  <option value="K">K</option>
+                <!-- </optgroup> -->
+              </select>
+            </div>
+      </form>
+    </div>
 
-    <form name="week" method="POST" action="">
-      <h2 align="left">Choose A Week for Comparison</h2>
-        <div class="form-group">
-          <label for="week">Week</label>
-          <select name="week" id="week">
-            <option value="">-- Please Select --</option>
-            <optgroup label="Select a Week:">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-            </optgroup>
-          </select>
-        </div>
-    </form>
+    <div class="form-year">
+      <form name="year" method="POST" action="">
+        <h2 align="left">Choose A Year for Comparison</h2>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <select name="year" id="year">
+              <option value="">-- Please Select --</option>
+              <optgroup label="Select a Year:">
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+              </optgroup>
+            </select>
+          </div>
+      </form>
+    </div>
 
-    <a href="#">
-     <button type="submit" class="initial-select">Start</button>
-    </a>
+    <div class="form-week">
+      <form name="week" method="POST" action="">
+        <h2 align="left">Choose A Week for Comparison</h2>
+          <div class="form-group">
+            <label for="week">Week</label>
+            <select name="week" id="week">
+              <option value="">-- Please Select --</option>
+              <optgroup label="Select a Week:">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+              </optgroup>
+            </select>
+          </div>
+      </form>
+    </div>
 
-  <form name="player-one" method="POST" action="">
-    <h2 align="left">Choose Your First Player</h2>
-      <div class="form-group">
-        <label for="player-one">Player One</label>
-        <select name="player-one" id="player-one">
-          <option value="">-- Please Select --</option>
-          <optgroup class="player-list" label="Select a Player:">
+    <div class="select-button">
+      <a href="#">
+       <button type="submit" class="initial-select">Start</button>
+      </a>
+    </div>
 
-          </optgroup>
-        </select>
-      </div>
-  </form>
+    <div class="form-playerOne">
+      <form name="player-one" method="POST" action="">
+        <h2 align="left">Choose Your First Player</h2>
+          <div class="form-group">
+            <label for="player-one">Player One</label>
+            <select name="player-one" id="player-one">
+              <option value="">-- Please Select --</option>
+              <optgroup class="player-list" label="Select a Player:">
 
-    <form name="player-two" method="POST" action="">
-      <h2 align="left">Choose Your Second Player</h2>
-        <div class="form-group">
-          <label for="player-two">Player Two</label>
-          <select name="player-two" id="player-two">
-            <option value="">-- Please Select --</option>
-            <optgroup class="player-list" label="Select a Player:">
+              </optgroup>
+            </select>
+          </div>
+      </form>
+    </div>
 
-            </optgroup>
-          </select>
-        </div>
-    </form>
+    <div class="form-playerTwo">
+      <form name="player-two" method="POST" action="">
+        <h2 align="left">Choose Your Second Player</h2>
+          <div class="form-group">
+            <label for="player-two">Player Two</label>
+            <select name="player-two" id="player-two">
+              <option value="">-- Please Select --</option>
+              <optgroup class="player-list" label="Select a Player:">
 
-    <a>
-     <button type="submit" class="compare-initial">Compare</button>
-    </a>
+              </optgroup>
+            </select>
+          </div>
+      </form>
+    </div>
+
+    <div class="compare-button">
+      <a>
+       <button type="submit" class="compare-initial">Compare</button>
+      </a>
+    </div>
+
+  </div>
+
+<!-- ___________________________  Popup Comparison Page  _________________________ -->
 
     <div class="overlay">
       <div class="content">
