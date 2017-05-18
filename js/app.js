@@ -126,29 +126,24 @@ function displayStats(state){
         if (statValueOne === false){
           statValueOne = 0;
         }
-
-      switch (state.selected.position){
-          case "QB":
-            // Only for k = 0,1,2,3,4,8,9:
-            if (k <= 4 || k >= 8){
-              displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
-            }
-            console.log(displayOne);
-            break;
-          case "RB":
-          case "WR":
-          case "TE":
-            // // Only for k = 3,4,5,6,8,9:
-            if ((k >=3 && k <= 6) || k >= 8){
-              displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
-            }
-            break;
-          default:   // "K":
-            // Only for k = 0,1,2,3,4,5:
-            if (k <= 5){
-              displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
-            }
-       }
+        switch (state.selected.position){
+            case "QB":
+              if (k <= 4 || k >= 8){
+                displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+              }
+              break;
+            case "RB":
+            case "WR":
+            case "TE":
+              if ((k >=3 && k <= 6) || k >= 8){
+                displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+              }
+              break;
+            default:   // for kicker:
+              if (k <= 5){
+                displayOne += '<li class="stat1-' + statKeyOne + '">' + statKeyOne + ': ' + statValueOne + '</li>';
+              }
+         }
     }
   displayOne += '</ul>';
 
@@ -160,7 +155,24 @@ function displayStats(state){
       if (statValueTwo === false){
         statValueTwo = 0;
       }
-      displayTwo += '<li class="stat2-' + statKeyTwo + '">' + statKeyTwo + ': ' + statValueTwo + '</li>';
+      switch (state.selected.position){
+            case "QB":
+              if (k <= 4 || k >= 8){
+                displayTwo += '<li class="stat2-' + statKeyTwo + '">' + statKeyTwo + ': ' + statValueTwo + '</li>';
+              }
+              break;
+            case "RB":
+            case "WR":
+            case "TE":
+              if ((k >=3 && k <= 6) || k >= 8){
+                displayTwo += '<li class="stat2-' + statKeyTwo + '">' + statKeyTwo + ': ' + statValueTwo + '</li>';
+              }
+              break;
+            default:   // for kicker:
+              if (k <= 5){
+                displayTwo += '<li class="stat2-' + statKeyTwo + '">' + statKeyTwo + ': ' + statValueTwo + '</li>';
+              }
+         }
     }
   displayTwo += '</ul>';
 
