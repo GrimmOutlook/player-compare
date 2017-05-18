@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+.hide {
+  display: none;
+}
+
 /* ------------------------   Grid Layout for choose.html  ----------------------*/
 
 #choose-container {

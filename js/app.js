@@ -231,14 +231,19 @@ function initialSelect(){
     state.selected.position = $('#position-choice').val();
     state.selected.year = $('#year').val();
     state.selected.week = $('#week').val();
-    getPlayersFromAPI(state, displayDropdown);
+      if ((state.selected.position != "no-choice") && (state.selected.year != "no-choice") && (state.selected.week != "no-choice")){
+        getPlayersFromAPI(state, displayDropdown);
+        $('.hide').removeClass();
+      }
+      else{
+        alert("Please pick a position, a year, and a week!");
+      }
   });
 }
 
 function selectCompare(){
   $('.compare-initial').click(function(e){
     $('.overlay').addClass('is-on');
-    // e.preventDefault();
     state.selected.playerOne = $('#player-one').find('option:selected').val();
     state.selected.playerTwo = $('#player-two').find('option:selected').val();
     displayStats(state);

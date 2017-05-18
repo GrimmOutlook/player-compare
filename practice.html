@@ -25,7 +25,7 @@
           <div class="form-group">
               <label for="position-choice">Position</label>
               <select name="position-choice" id="position-choice">
-                <option value="">-- Please Select --</option>
+                <option value="no-choice">-- Please Select --</option>
                 <!-- <optgroup label="Select a Position:"> -->
                   <option value="QB">QB</option>
                   <option value="RB">RB</option>
@@ -44,7 +44,7 @@
           <div class="form-group">
             <label for="year">Year</label>
             <select name="year" id="year">
-              <option value="">-- Please Select --</option>
+              <option value="no-choice">-- Please Select --</option>
               <optgroup label="Select a Year:">
                 <option>2016</option>
                 <option>2015</option>
@@ -63,7 +63,7 @@
           <div class="form-group">
             <label for="week">Week</label>
             <select name="week" id="week">
-              <option value="">-- Please Select --</option>
+              <option value="no-choice">-- Please Select --</option>
               <optgroup label="Select a Week:">
                 <option>1</option>
                 <option>2</option>
@@ -94,7 +94,7 @@
       </a>
     </div>
 
-    <div class="form-playerOne">
+    <div class="form-playerOne hide">
       <form name="player-one" method="POST" action="">
         <h2 align="left">Choose Your First Player</h2>
           <div class="form-group">
@@ -109,7 +109,7 @@
       </form>
     </div>
 
-    <div class="form-playerTwo">
+    <div class="form-playerTwo hide">
       <form name="player-two" method="POST" action="">
         <h2 align="left">Choose Your Second Player</h2>
           <div class="form-group">
@@ -124,7 +124,7 @@
       </form>
     </div>
 
-    <div class="compare-button">
+    <div class="compare-button hide">
       <a>
        <button type="submit" class="compare-initial">Compare</button>
       </a>
