@@ -243,10 +243,15 @@ function initialSelect(){
 
 function selectCompare(){
   $('.compare-initial').click(function(e){
-    $('.overlay').addClass('is-on');
     state.selected.playerOne = $('#player-one').find('option:selected').val();
     state.selected.playerTwo = $('#player-two').find('option:selected').val();
-    displayStats(state);
+      if ((state.selected.playerOne != "no-choice") && (state.selected.playerTwo != "no-choice")){
+        $('.overlay').addClass('is-on');
+        displayStats(state);
+      }
+      else{
+        alert("You can't compare players if you don't pick two!  Please select a player from both menus.");
+      }
   });
 }
 
