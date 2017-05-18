@@ -257,7 +257,7 @@ function selectCompare(){
 
 function closePopup(){
   $('#close').on('click', function() {
-  $('.overlay').removeClass('is-on');
+    $('.overlay').removeClass('is-on');
   });
 }
 
