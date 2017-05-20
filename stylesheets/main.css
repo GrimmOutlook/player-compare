@@ -7,7 +7,7 @@ body {
   display: none;
 }
 
-/* ------------------------   Grid Layout for choose.html  ----------------------*/
+/* ------------------------   Grid Layout for 1st Page  ----------------------*/
 
   /*------------ Mobile Stack -----------*/
 #choose-container {
@@ -105,18 +105,26 @@ body {
 
 .form-position {
   grid-area: form-position;
+  /*justify-self: center;*/
+  padding-left: 50px;
+  align-self: center;
 }
 
 .form-year {
   grid-area: form-year;
+  align-self: center;
 }
 
 .form-week {
   grid-area: form-week;
+  padding-right: 50px;
+  align-self: center;
 }
 
 .select-button {
   grid-area: select-button;
+  justify-self: center;
+  align-self: center;
 }
 
 .form-playerOne {
@@ -131,7 +139,13 @@ body {
   grid-area: compare-button;
 }
 
-/* ------------------------   Grid Layout for compare.html  ----------------------*/
+.select-button button {
+  height: 50px;
+  width: 100px;
+  font-size: 2em;
+}
+
+/* ------------------------   Grid Layout for Comparison Popup ----------------------*/
 
 /*------------ Mobile Stack -----------*/
 .compare {
@@ -146,9 +160,11 @@ body {
   grid-column: 1;
 }
 
-#close button {
+#close {
   grid-row: 2;
   grid-column: 1;
+  justify-self: center;
+  align-self: center;
 }
 
 .player-one-info {
@@ -199,7 +215,7 @@ body {
 @media only screen and (min-device-width: 750px) {
   .compare {
     display: grid;
-    grid-template-rows: 50px 280px min-content;
+    grid-template-rows: 50px 220px min-content;
     grid-template-columns: 2fr 1fr 2fr 1fr;
     grid-gap: 10px;
   }
@@ -210,10 +226,10 @@ body {
     background-color: #009933;
   }
 
-  #close button {
+  #close {
     grid-row: 1;
     grid-column: 4;
-    font-size: 15px;
+    font-size: 1.5em;
     color: #999;
     cursor: pointer;
     justify-self: center;
@@ -227,7 +243,7 @@ body {
     height: 200px;
     width: 200px;
     /*border: 1px solid black;*/
-    justify-self: end;
+    justify-self: center;
   }
 
   .playerOne-bio {
@@ -243,7 +259,7 @@ body {
     height: 200px;
     width: 200px;
     /*border: 1px solid black;*/
-    justify-self: end;
+    justify-self: center;
   }
 
   .playerTwo-bio {
@@ -280,6 +296,8 @@ body {
 
 }
 
+/* ----------------------------------------------------------------------------- */
+
 .player-one-info, .player-two-info {
   border: 1px solid black;
 }
@@ -291,7 +309,19 @@ body {
   width: 3em;*/
 }
 
-/* ----------------------------------------------------------------------------- */
+#playerOne-stat-display ul li,
+#playerTwo-stat-display ul li {
+  text-decoration: none;
+  font-size: 1.5em;
+
+}
+
+#close button {
+  height: 40px;
+  width: 140px;
+}
+
+
 
 /*button {
   height: 40px;
@@ -303,122 +333,3 @@ body {
   cursor: pointer;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.masthead {
-  grid-row: 1;
-  grid-column: 1 / span 2;
-  background-color: #009933;
-}
-
-.big-image {
-  grid-row: 2;
-  grid-column: 1 / span 2;
-}
-
-.instructions {
-  grid-row: 3;
-  grid-column: 1 / span 2;
-}
-
-.positions {
-  grid-row: 4;
-  grid-column: 1 / span 2;
-}
-
-form[name="player-one"] {
-  grid-row: 5;
-  grid-column: 1;
-  border-right: 1px solid black;
-}
-
-form[name="player-one-year"] {
-  grid-row: 6;
-  grid-column: 1;
-  border-right: 1px solid black;
-}
-
-form[name="player-two"] {
-  grid-row: 5;
-  grid-column: 2;
-}
-
-form[name="player-two-year"] {
-  grid-row: 6;
-  grid-column: 2;
-}
-
-.compare-initial {
-  grid-row: 7;
-  grid-column: 1 / span 2;
-  justify-self: center;
-}
-
-.position-list > li {
-  float: left;
-  width: 70px;
-}
-
-.big-image > img {
-  height: 200px;
-  width: 100%;
-}*/
-
-
-
-
-
