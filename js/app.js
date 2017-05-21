@@ -12,9 +12,9 @@ var state = {
 };
 
 
-// ---------------------------  API Call fxns.  ---------------------------------
+// ---------------------------  API Call Fxn  ---------------------------------------
 
-// Fxn to GET list of players from API scoringleaders endpoint
+// Fxn to GET all player information for a given position, year, and week from API scoringleaders endpoint:
 function getPlayersFromAPI(state, callback){
   debugger
   var settings = {
@@ -32,28 +32,11 @@ function getPlayersFromAPI(state, callback){
   $.ajax(settings);
 }
 
-// Fxn to GET stats from API scoringleaders endpoint  - USE ONE GET API FXN
-// function getStatsFromAPI(position, year, callback){
-//   debugger
-//   var settings = {
-//     url: endpointURLScoring,
-//     data: {
-//       season: year,
-//       position: position,
-//       format: 'json'
-//     },
-//     dataType: 'json',
-//     method: 'GET',
-//     success: callback
-//   };
-//   $.ajax(settings);
-// }
 
-// -------------------------  Callback Display fxns.  ---------------------------------
+// ----------------------------  Display Fxns.  --------------------------------------
 
-// Callback Fxn that displays a list of players in a dropdown menu for user selection for both Player 1 and Player 2.
+// Callback Fxn that displays a list of players in a dropdown menu for user selection for both Player 1 and Player 2:
 function displayDropdown(playerData){
-debugger
   var player = {};
   var players = [];
   var resultElement = '';
@@ -79,10 +62,9 @@ debugger
   }
 
   $('.player-list').html(resultElement);
-  // $(<some class>)
 }
 
-// Sort names alphabetically
+// Fxn that sorts names alphabetically in both player-list dropdown menu:
 function alphaSort(a, b) {
     var playerA = a.alpha.toUpperCase();
     var playerB = b.alpha.toUpperCase();
@@ -96,9 +78,8 @@ function alphaSort(a, b) {
       return comparison;
   }
 
-
+//Fxn that displays stats and player bio for both players:
 function displayStats(state){
-
   var playerArrayOne = state.selected.playerOne.split(' ');
   var playerOneFN = playerArrayOne.shift();
   var playerOneLN = playerArrayOne.shift().slice(0, -1);
@@ -187,29 +168,25 @@ function displayStats(state){
   displayPhoto(playerOneObject, playerTwoObject);
 }
 
+//
 function compare(playerOneStats, playerTwoStats){
-debugger
-
   for (var k = 0; k < 10; k++){
     var statKeyOne = Object.keys(playerOneStats)[k];
     var statValueOne = playerOneStats[statKeyOne];
 
     var statKeyTwo = Object.keys(playerTwoStats)[k];
     var statValueTwo = playerTwoStats[statKeyTwo];
-debugger
+
     if (statValueOne > statValueTwo){
       $('.stat1-' + statKeyOne).addClass('highlight');
     }
     else if (statValueOne < statValueTwo){
       $('.stat2-' + statKeyTwo).addClass('highlight');
     }
-    else{
-      console.log('do i highlight both?');
-      //highlight both stat values or not?
-    }
   }
 }
 
+//Fxn that displays the headshot and logo for both players:
 function displayPhoto(playerOneObject, playerTwoObject){
   var headshotOne = '<img src="http://s.nflcdn.com/static/content/public/static/img/fantasy/transparent/200x200/' + playerOneObject.esbid + '.png">';
   var teamLogoOne = '<img src="http://fantasy.nfl.com/static/img/clubs/' + playerOneObject.teamAbbr.toLowerCase() + '/280x240_1494349607.png">';
@@ -223,8 +200,10 @@ function displayPhoto(playerOneObject, playerTwoObject){
   $('#playerTwo-logo').html(teamLogoTwo);
 }
 
+
 // ---------------------------  User Event fxns.  ---------------------------------
 
+//Fxn that calls API fxn when user selects a position, year, and week, then clicks the "start" button:
 function initialSelect(){
   $('.initial-select').click(function(e){
     e.preventDefault();
@@ -241,6 +220,7 @@ function initialSelect(){
   });
 }
 
+//Fxn that calls the displayStats fxn and opens the popup window when user selects players from both dropdown menus, then clicks the "Compare" button:
 function selectCompare(){
   $('.compare-initial').click(function(e){
     state.selected.playerOne = $('#player-one').find('option:selected').val();
@@ -255,13 +235,14 @@ function selectCompare(){
   });
 }
 
+//Fxn that closes the popup window, and takes user back to 1st page upon clicking the "Close and Choose Again" button:
 function closePopup(){
   $('#close').on('click', function() {
     $('.overlay').removeClass('is-on');
   });
 }
 
-
+//jQuery Onload fxn:
 $(function(){
   initialSelect();
   selectCompare();
