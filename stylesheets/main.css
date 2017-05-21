@@ -59,15 +59,15 @@ body {
   #choose-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 500px min-content 120px 40px 120px 40px;
+    grid-template-rows: 500px min-content 150px 80px 190px 80px;
     /*grid-template-rows: auto;*/
     grid-template-areas:
-      "big-image big-image big-image"
-      "instructions instructions instructions"
-      "form-position form-year form-week"
-      ". select-button ."
-      "form-playerOne . form-playerTwo"
-      ". compare-button .";
+      "big-image big-image big-image"            /*500px*/
+      "instructions instructions instructions"   /*min-content*/
+      "form-position form-year form-week"        /*150px*/
+      ". select-button ."                        /*80px*/
+      "form-playerOne . form-playerTwo"          /*190px*/
+      ". compare-button .";                      /*80px*/
     /*grid-gap: 10px;*/
   }
 
@@ -106,18 +106,19 @@ body {
 .form-position {
   grid-area: form-position;
   /*justify-self: center;*/
-  padding-left: 50px;
+  justify-self: center;
   align-self: center;
 }
 
 .form-year {
   grid-area: form-year;
+  justify-self: center;
   align-self: center;
 }
 
 .form-week {
   grid-area: form-week;
-  padding-right: 50px;
+  justify-self: center;
   align-self: center;
 }
 
@@ -129,20 +130,49 @@ body {
 
 .form-playerOne {
   grid-area: form-playerOne;
+  justify-self: end;
+  align-self: center;
 }
 
 .form-playerTwo {
   grid-area: form-playerTwo;
+  justify-self: start;
+  align-self: center;
 }
 
 .compare-button {
   grid-area: compare-button;
+  justify-self: center;
+  align-self: start;
+}
+
+/* ------------------------  Styles ---------------------------------------*/
+
+select {
+  height: 2.2em;
+  font-size: 1.1em;
 }
 
 .select-button button {
   height: 50px;
   width: 100px;
-  font-size: 2em;
+  font-size: 1.5em;
+  align-self: end;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: green;
+  color: white;
+}
+
+.compare-button button {
+  height: 50px;
+  width: 160px;
+  font-size: 1.5em;
+  align-self: end;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: lightgreen;
+  color: black;
 }
 
 /* ------------------------   Grid Layout for Comparison Popup ----------------------*/
@@ -150,7 +180,7 @@ body {
 /*------------ Mobile Stack -----------*/
 .compare {
     display: grid;
-    grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(9, min-content);
     grid-template-columns: 1fr;
     /*grid-gap: 10px;*/
   }
@@ -158,55 +188,66 @@ body {
 .masthead {
   grid-row: 1;
   grid-column: 1;
+  background-color: #009933;
 }
 
 #close {
-  grid-row: 2;
+  grid-row: 1;
   grid-column: 1;
-  justify-self: center;
+  justify-self: end;
   align-self: center;
 }
 
 .player-one-info {
   grid-row: 3;
   grid-column: 1;
+  justify-self: center;
+  margin-top: 2em;
 }
 
 .playerOne-bio {
   grid-row: 4;
   grid-column: 1;
+  justify-self: center;
 }
 
 .player-one-stats {
   grid-row: 5;
   grid-column: 1;
+  justify-self: center;
 }
 
 #playerOne-logo {
   grid-row: 5;
   grid-column: 1;
   opacity: 0.20;
+  justify-self: center;
 }
 
 .player-two-info {
   grid-row: 6;
   grid-column: 1;
+  justify-self: center;
+  margin-top: 2em;
 }
 
 .playerTwo-bio {
   grid-row: 7;
   grid-column: 1;
+  justify-self: center;
 }
 
 .player-two-stats {
   grid-row: 8;
   grid-column: 1;
+  justify-self: center;
 }
 
 #playerTwo-logo {
   grid-row: 8;
   grid-column: 1;
   opacity: 0.20;
+  justify-self: center;
 }
 
 
@@ -215,7 +256,7 @@ body {
 @media only screen and (min-device-width: 750px) {
   .compare {
     display: grid;
-    grid-template-rows: 50px 220px min-content;
+    grid-template-rows: 75px 220px min-content;
     grid-template-columns: 2fr 1fr 2fr 1fr;
     grid-gap: 10px;
   }
@@ -229,7 +270,7 @@ body {
   #close {
     grid-row: 1;
     grid-column: 4;
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     color: #999;
     cursor: pointer;
     justify-self: center;
@@ -278,7 +319,7 @@ body {
     grid-row: 3;
     grid-column: 1 / span 2;
     justify-self: center;
-    opacity: 0.20;
+    opacity: 0.10;
   }
 
   .player-two-stats {
@@ -291,7 +332,7 @@ body {
     grid-row: 3;
     grid-column: 3 / span 2;
     justify-self: center;
-    opacity: 0.20;
+    opacity: 0.10;
   }
 
 }
@@ -309,8 +350,8 @@ body {
   width: 3em;*/
 }
 
-#playerOne-stat-display ul li,
-#playerTwo-stat-display ul li {
+#playerOne-stat-display>ul li,
+#playerTwo-stat-display>ul li {
   text-decoration: none;
   font-size: 1.5em;
 
@@ -319,17 +360,13 @@ body {
 #close button {
   height: 40px;
   width: 140px;
+  font-size: 0.8em;
 }
 
-
-
-/*button {
-  height: 40px;
-  width: 100px;
-  text-align: center;
-  padding: 5px 10px;
-  background: yellow;
-  color: black;
-  cursor: pointer;
+.masthead p {
+  font-size: 2.2em;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  padding-left: 1em;
 }
-*/

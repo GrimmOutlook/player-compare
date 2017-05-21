@@ -231,13 +231,13 @@ function initialSelect(){
     state.selected.position = $('#position-choice').val();
     state.selected.year = $('#year').val();
     state.selected.week = $('#week').val();
-      if ((state.selected.position != "no-choice") && (state.selected.year != "no-choice") && (state.selected.week != "no-choice")){
+      // if ((state.selected.position != "no-choice") && (state.selected.year != "no-choice") && (state.selected.week != "no-choice")){
         getPlayersFromAPI(state, displayDropdown);
-        $('.hide').removeClass();
-      }
-      else{
-        alert("Please pick a position, a year, and a week!");
-      }
+      //   $('.hide').removeClass();
+      // }
+      // else{
+      //   alert("Please pick a position, a year, and a week!");
+      // }
   });
 }
 
