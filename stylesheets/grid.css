@@ -55,13 +55,13 @@
 
 .form-playerOne {
   grid-area: form-playerOne;
-  justify-self: end;
+  justify-self: center;
   align-self: center;
 }
 
 .form-playerTwo {
   grid-area: form-playerTwo;
-  justify-self: start;
+  justify-self: center;
   align-self: center;
 }
 

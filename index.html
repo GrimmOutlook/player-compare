@@ -17,7 +17,8 @@
     </div>
 
     <div class="instructions">
-      <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+      <p>Welcome to NFL Player Compare!  You will be able to compare one player's stats to another for any particular week of any of the last five seasons.  Stats are available for quarterback (QB), running back (RB), wide receiver (WR), tight end (TE), and kicker (K).</p>
+      <p>To compare the statistics of two players, first pick a position, a year, and a week, then hit the <b>"Start"</b> button.  Two dropdown menus will then appear, where you will choose one player from each menu.  Then hit the <b>"Compare"</b> button, and the relevant statistics for each player will appear in a popup window.</p>
     </div>
 
     <div class="form-position">
@@ -95,7 +96,7 @@
       </a>
     </div>
 
-    <div class="form-playerOne">  <!-- hide -->
+    <div class="form-playerOne hide">  <!-- hide -->
       <form name="player-one" method="POST" action="">
         <h2 align="left">Choose Your First Player</h2>
           <div class="form-group">
@@ -110,7 +111,7 @@
       </form>
     </div>
 
-    <div class="form-playerTwo">  <!-- hide -->
+    <div class="form-playerTwo hide">  <!-- hide -->
       <form name="player-two" method="POST" action="">
         <h2 align="left">Choose Your Second Player</h2>
           <div class="form-group">
@@ -125,7 +126,7 @@
       </form>
     </div>
 
-    <div class="compare-button">  <!-- hide -->
+    <div class="compare-button hide">  <!-- hide -->
       <a>
        <button type="submit" class="compare-initial">Compare</button>
       </a>
@@ -153,7 +154,6 @@
             </aside>
 
             <div class="player-one-stats">
-              <h2></h2>
               <div id="playerOne-stat-display" class="player-one-stats"></div>
             </div>
 
@@ -168,7 +168,6 @@
           </aside>
 
           <div class="player-two-stats">
-              <h2></h2>
               <div id="playerTwo-stat-display" class="player-two-stats">
               </div>
           </div>

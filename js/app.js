@@ -25,7 +25,7 @@ function getPlayersFromAPI(state, callback){
       position: state.selected.position,
       format: 'json'
     },
-    dataType: 'json',
+    dataType: 'jsonp',
     method: 'GET',
     success: callback
   };
@@ -64,7 +64,7 @@ function displayDropdown(playerData){
   $('.player-list').html(resultElement);
 }
 
-// Fxn that sorts names alphabetically in both player-list dropdown menu:
+// Fxn that sorts names alphabetically in both player-list dropdown menus:
 function alphaSort(a, b) {
     var playerA = a.alpha.toUpperCase();
     var playerB = b.alpha.toUpperCase();
@@ -168,7 +168,7 @@ function displayStats(state){
   displayPhoto(playerOneObject, playerTwoObject);
 }
 
-//
+//Fxn that compares the stats listed between both players and highlights the stat that is greater:
 function compare(playerOneStats, playerTwoStats){
   for (var k = 0; k < 10; k++){
     var statKeyOne = Object.keys(playerOneStats)[k];
@@ -210,13 +210,13 @@ function initialSelect(){
     state.selected.position = $('#position-choice').val();
     state.selected.year = $('#year').val();
     state.selected.week = $('#week').val();
-      // if ((state.selected.position != "no-choice") && (state.selected.year != "no-choice") && (state.selected.week != "no-choice")){
+      if ((state.selected.position != "no-choice") && (state.selected.year != "no-choice") && (state.selected.week != "no-choice")){
         getPlayersFromAPI(state, displayDropdown);
-      //   $('.hide').removeClass();
-      // }
-      // else{
-      //   alert("Please pick a position, a year, and a week!");
-      // }
+      $('.hide').removeClass('hide');
+      }
+      else{
+        alert("Please pick a position, a year, and a week!");
+      }
   });
 }
 

@@ -4,14 +4,14 @@ body {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
 
 /*-------------------  1st Page Mobile Stack Styles  ---------------------------------*/
 
 .big-image {
-  height: 200px;
+  height: 300px;
   max-width: 100%;
   background-image: linear-gradient(
       rgba(0, 85, 15, 0.5),
@@ -26,11 +26,7 @@ body {
   color: white;
   text-transform: uppercase;
   margin: auto;
-  padding-top: 25%;
-  /*position: fixed;
-  top: 25%;
-  left: 22%;*/
-  font-size: 5vw;
+  font-size: 3.5em;
 }
 
 
@@ -53,12 +49,15 @@ body {
     color: white;
     text-transform: uppercase;
     margin: auto;
-    padding-top: 15%;
-    /*position: fixed;
-    top: 25%;
-    left: 22%;*/
-    font-size: 4.5rem;
+    /*padding-top: 15%;*/
+    font-size: 4.5em;
   }
+
+  .instructions {
+    padding: 10px 20px;
+    font-size: 1.2em;
+  }
+
 }
 
 
@@ -96,6 +95,11 @@ select {
 
 .masthead {
   background-color: #009933;
+}
+
+.big-image h1 {
+  position: relative;
+  top: 40%;
 }
 
 .player-one-info {
@@ -161,6 +165,16 @@ select {
 
   .playerOne-bio {
     margin-left: 3%;
+  }
+
+  #playerOne-logo, #playerTwo-logo, .player-one-stats, .player-two-stats {
+    padding-top: 20px;
+  }
+
+  .masthead p {
+    height: 75px;
+    margin: 12.5px;
+    padding-top:2.5px;
   }
 
 }
