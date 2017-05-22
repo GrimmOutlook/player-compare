@@ -16,7 +16,6 @@ var state = {
 
 // Fxn to GET all player information for a given position, year, and week from API scoringleaders endpoint:
 function getPlayersFromAPI(state, callback){
-  debugger
   var settings = {
     url: endpointURLScoring,
     data: {
