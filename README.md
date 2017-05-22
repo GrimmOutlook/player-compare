@@ -23,10 +23,10 @@ Specifically, the API url endpoint used to retrieve player information is: http:
 ## Screenshots:
 First Page:
 
-(../images/pageone.png)
+![why do i need these brackets](../images/pageone.png)
 
 
 Popup Window:
 
-(../images/popup-window.png)
+![why do i need these brackets](../images/popup-window.png)
 
