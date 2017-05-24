@@ -1,5 +1,7 @@
 ## Application:
 
+http://player-compare.herokuapp.com/index.html
+
 NFL Player Compare compares two NFL players at a particular position based on relevant statistics.  Players' statistics are displayed for a single week in a single season.  The user inputs the position, the season (year), and the week for comparison.  Based on that information, the call to the API listed below is made and two identical dropdown menus are displayed from which the user selects two players.  Once the players are selected, the relevant statistics are displayed along with a comparison denoted by yellow highlighting.  The user can then close the popup window and choose another set of players from the same position-year-week set of choices, or choose a new set of position, year, and week criteria.
 
 ## Code:
@@ -17,8 +19,6 @@ Specifically, the API url endpoint used to retrieve player information is: http:
 ## Note of Caution - Important!!!
 
 1.  As of May 21st, 2017, the NFL API site used for this application is undergoing an update.  As a result, the player statistics from any year prior to 2016 returns all false values, which are rendered as "0" in this app.  The player name, team, and position, along with the player photo and his team's logo are still rendered for all possible years.  Correct statistics from years other than 2016 had been rendered prior to this update, and hopefully will again.
-
-2.  The app is at: https://grimmoutlook.github.io/player-compare/ - which is an https site.  The API used here is http, so the API could not be called from the github.io site.  Deployment of this app through a service other than github.com is currently being investigated to alleviate this problem.
 
 ## Screenshots:
 First Page:
