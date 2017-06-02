@@ -87,6 +87,14 @@
       "form-playerOne . form-playerTwo"          /*190px*/
       ". compare-button .";                      /*80px*/
   }
+
+  .form-playerOne {
+    justify-self: end;
+  }
+
+  .form-playerTwo {
+    justify-self: start;
+  }
 }
 
 
